@@ -1,0 +1,101 @@
+<section id="projects" class="section projects">
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-4782-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Animated Background -->
+  <div class="projects-background">
+    <div class="bg-code-lines">
+      <div class="code-line code-line-1"></div>
+      <div class="code-line code-line-2"></div>
+      <div class="code-line code-line-3"></div>
+      <div class="code-line code-line-4"></div>
+      <div class="code-line code-line-5"></div>
+    </div>
+    <div class="bg-floating-icons">
+      <div class="float-icon float-icon-1"><i class="fab fa-react"></i></div>
+      <div class="float-icon float-icon-2"><i class="fab fa-angular"></i></div>
+      <div class="float-icon float-icon-3"><i class="fab fa-node-js"></i></div>
+      <div class="float-icon float-icon-4"><i class="fas fa-database"></i></div>
+      <div class="float-icon float-icon-5"><i class="fab fa-docker"></i></div>
+    </div>
+    <!-- Glowing orbs -->
+    <div class="glow-orbs">
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      <div class="glow-orb orb-3"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Projects & Achievements</h2>
+
+    <div class="projects-section">
+      <h3 class="subsection-title"><i class="fas fa-code-branch"></i> Live Projects</h3>
+      <div class="project-cards">
+        @for (project of projects; track project.title) {
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i [class]="project.icon"></i>
+              </div>
+              @if (project.link) {
+                <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              }
+            </div>
+            <div class="project-content">
+              <h4>{{ project.title }}</h4>
+              <p>{{ project.description }}</p>
+              <div class="project-features">
+                <h5>Key Features:</h5>
+                <ul>
+                  @for (feature of project.features; track feature) {
+                    <li><i class="fas fa-check"></i> {{ feature }}</li>
+                  }
+                </ul>
+              </div>
+              <div class="project-tech">
+                @for (tech of project.technologies; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
+                }
+              </div>
+              @if (project.link) {
+                <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="btn-visit">
+                  <i class="fas fa-globe"></i> Visit Website
+                </a>
+              } @else {
+                <span class="project-type">
+                  <i class="fab fa-android"></i> Mobile Application
+                </span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="achievements-section">
+      <h3 class="subsection-title"><i class="fas fa-medal"></i> Certifications & Achievements</h3>
+      <div class="achievements-grid">
+        @for (achievement of achievements; track achievement.title) {
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i [class]="achievement.icon"></i>
+            </div>
+            <div class="achievement-content">
+              <span class="achievement-year">{{ achievement.year }}</span>
+              <h4>{{ achievement.title }}</h4>
+              <p>{{ achievement.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+<section id="education" class="section education">
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-technology-grid-loop-33039-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Animated Background -->
+  <div class="education-background">
+    <div class="bg-gradient-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="bg-books">
+      <div class="book book-1"><i class="fas fa-book"></i></div>
+      <div class="book book-2"><i class="fas fa-graduation-cap"></i></div>
+      <div class="book book-3"><i class="fas fa-certificate"></i></div>
+      <div class="book book-4"><i class="fas fa-award"></i></div>
+    </div>
+    <!-- Glowing orbs -->
+    <div class="glow-orbs">
+      <div class="glow-orb glow-1"></div>
+      <div class="glow-orb glow-2"></div>
+      <div class="glow-orb glow-3"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Education & Certifications</h2>
+
+    <!-- Certifications Section -->
+    <div class="certifications-section">
+      <h3 class="subsection-title"><i class="fas fa-certificate"></i> Professional Certifications</h3>
+      <div class="certifications-grid">
+        @for (cert of certifications; track cert.title) {
+          <div class="certification-card">
+            <div class="cert-icon">
+              <i [class]="cert.icon"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-year">{{ cert.year }}</span>
+              <h4>{{ cert.title }}</h4>
+              <p class="cert-provider">{{ cert.provider }}</p>
+              <div class="cert-skills">
+                @for (skill of cert.skills; track skill) {
+                  <span class="skill-badge">{{ skill }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Education Timeline -->
+    <h3 class="subsection-title"><i class="fas fa-graduation-cap"></i> Academic Background</h3>
+    <div class="timeline">
+      @for (edu of educationData; track edu.degree; let i = $index) {
+        <div class="timeline-item" [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
+          <div class="timeline-icon">
+            <i [class]="edu.icon"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-year">{{ edu.year }}</span>
+            <h3>{{ edu.degree }}</h3>
+            @if (edu.specialization) {
+              <span class="specialization">
+                <i class="fas fa-cloud"></i> Specialization: {{ edu.specialization }}
+              </span>
+            }
+            <h4>{{ edu.institution }}</h4>
+            <p class="university"><i class="fas fa-university"></i> {{ edu.university }}</p>
+            <div class="score">
+              <span class="percentage">{{ edu.percentage }}</span>
+              <span class="grade" [class.distinction]="edu.grade === 'Distinction'">{{ edu.grade }}</span>
+            </div>
+            @if (edu.highlights) {
+              <div class="highlights">
+                <p class="highlight-title">Key Areas:</p>
+                <div class="highlight-tags">
+                  @for (highlight of edu.highlights; track highlight) {
+                    <span class="highlight-tag">{{ highlight }}</span>
+                  }
+                </div>
+              </div>
+            }
+            @if (edu.details) {
+              <div class="year-details">
+                @for (detail of edu.details; track detail.year) {
+                  <div class="detail-row">
+                    <span>{{ detail.year }}</span>
+                    <span>{{ detail.percentage }} - {{ detail.grade }}</span>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

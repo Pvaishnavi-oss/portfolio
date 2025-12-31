@@ -1,0 +1,137 @@
+<section id="skills" class="section skills">
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-city-made-of-light-2630-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Animated Background -->
+  <div class="skills-background">
+    <div class="bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <div class="bg-grid"></div>
+    <!-- Glowing orbs -->
+    <div class="glow-orbs">
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      <div class="glow-orb orb-3"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <!-- Cloud & DevOps Highlight -->
+    <div class="highlight-section">
+      <div class="highlight-card cloud">
+        <div class="highlight-header">
+          <i class="fas fa-cloud"></i>
+          <h3>Cloud Computing</h3>
+        </div>
+        <div class="highlight-skills">
+          @for (skill of cloudSkills; track skill.name) {
+            <div class="highlight-item" [style.border-color]="skill.color">
+              <i [class]="skill.icon" [style.color]="skill.color"></i>
+              <span>{{ skill.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="highlight-card devops">
+        <div class="highlight-header">
+          <i class="fas fa-cogs"></i>
+          <h3>DevOps & Tools</h3>
+        </div>
+        <div class="highlight-skills">
+          @for (skill of devopsSkills; track skill.name) {
+            <div class="highlight-item" [style.border-color]="skill.color">
+              <i [class]="skill.icon" [style.color]="skill.color"></i>
+              <span>{{ skill.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Database Section -->
+    <div class="database-section">
+      <div class="highlight-card database">
+        <div class="highlight-header">
+          <i class="fas fa-database"></i>
+          <h3>Databases & Data Storage</h3>
+        </div>
+        <div class="database-grid">
+          @for (skill of databaseSkills; track skill.name) {
+            <div class="database-item">
+              <div class="db-icon" [style.background]="'linear-gradient(135deg, ' + skill.color + ', ' + skill.color + '99)'">
+                <i [class]="skill.icon"></i>
+              </div>
+              <div class="db-info">
+                <span class="db-name">{{ skill.name }}</span>
+                <div class="db-bar">
+                  <div class="db-progress" [style.width.%]="skill.level" [style.background]="skill.color"></div>
+                </div>
+                <span class="db-percent">{{ skill.level }}%</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3><i class="fas fa-laptop-code"></i> Programming Languages</h3>
+        <div class="skill-items">
+          @for (skill of programmingSkills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i [class]="skill.icon"></i> {{ skill.name }}</span>
+                <span class="skill-percent">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" [style.width.%]="skill.level"></div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-globe"></i> Web Development</h3>
+        <div class="skill-items">
+          @for (skill of webSkills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i [class]="skill.icon"></i> {{ skill.name }}</span>
+                <span class="skill-percent">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" [style.width.%]="skill.level"></div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="skill-category other-skills">
+        <h3><i class="fas fa-tools"></i> Other Skills</h3>
+        <div class="skill-tags">
+          @for (skill of otherSkills; track skill.name) {
+            <span class="skill-tag">
+              <i [class]="skill.icon"></i> {{ skill.name }}
+            </span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
